@@ -2,5 +2,8 @@
 /shelf/
 /workspace.xml
 /venv/
-*.sqlite3
+/.idea/
 
+*.sqlite3
+*.gitignore
+*.name
