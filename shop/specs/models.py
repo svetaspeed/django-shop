@@ -23,12 +23,13 @@ class FeatureValidator(models.Model):
     """
     category = models.ForeignKey('mainapp.Category', verbose_name='Категория', on_delete=models.CASCADE)
     feature_key = models.ForeignKey(CategoryFeatures, verbose_name='Ключ характеристики', on_delete=models.CASCADE)
-    valid_feature_value = models.CharField(max_length=100, verbose_name='Влаидное значение')
+    valid_feature_value = models.CharField(max_length=100, verbose_name='Валидное значение')
 
     def __str__(self):
         return f"Категория \"{self.category.name}\" | " \
                f"Характеристика \"{self.feature_key.feature_name}\" | " \
                f" Валидное значение \"{self.valid_feature_value}\""
+
 
 class ProductFeatures(models.Model):
     """
