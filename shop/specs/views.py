@@ -47,7 +47,8 @@ class CreateNewCategory(View):
             new_category = form.save(commit=False)
             new_category.name = form.cleaned_data['name']
             new_category.save()
-        return HttpResponseRedirect('/product_specs')
+        return HttpResponseRedirect('/product_specs/')
+
 
 class CreateNewFeatureValidator(View):
 
@@ -55,6 +56,7 @@ class CreateNewFeatureValidator(View):
         categories = Category.objects.all()
         context = {'categories': categories}
         return render(request, 'new_validator.html', context)
+
 
 class FeatureChoiceView(View):
 
@@ -75,4 +77,3 @@ class FeatureChoiceView(View):
             res_string += option.format(value=item.feature_name, option_name=item.feature_name)
         html_select = html_select.format(result=res_string)
         return JsonResponse({"result": html_select, "value": int(request.GET.get('category_id'))})
-
