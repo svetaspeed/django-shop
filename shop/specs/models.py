@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class CategoryFeatures(models.Model):
+class CategoryFeature(models.Model):
     """
     Характеристика конкретной категории
     """
@@ -22,7 +22,7 @@ class FeatureValidator(models.Model):
     Валидатор значений для конкрейтной характеристики принадлежащей к конкретной категории
     """
     category = models.ForeignKey('mainapp.Category', verbose_name='Категория', on_delete=models.CASCADE)
-    feature_key = models.ForeignKey(CategoryFeatures, verbose_name='Ключ характеристики', on_delete=models.CASCADE)
+    feature_key = models.ForeignKey(CategoryFeature, verbose_name='Ключ характеристики', on_delete=models.CASCADE)
     valid_feature_value = models.CharField(max_length=100, verbose_name='Валидное значение')
 
     def __str__(self):
@@ -36,7 +36,7 @@ class ProductFeatures(models.Model):
     Характеристики товара
     """
     product = models.ForeignKey('mainapp.Product', verbose_name='Товар', on_delete=models.CASCADE)
-    feature = models.ForeignKey(CategoryFeatures, verbose_name='Характеристика', on_delete=models.CASCADE)
+    feature = models.ForeignKey(CategoryFeature, verbose_name='Характеристика', on_delete=models.CASCADE)
     value = models.CharField(max_length=255, verbose_name='Значение')
 
     def __str__(self):
