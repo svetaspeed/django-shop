@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <form action="{% url 'new_feature' %}" method="POST">
+    <form action="{% url 'new-feature' %}" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
         <br>

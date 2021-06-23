@@ -17,7 +17,7 @@ class BaseSpecView(View):
         return render(request, 'product_features.html', {})
 
 
-class CreateNewFeatures(View):
+class CreateNewFeature(View):
 
     def get(self, request, *args, **kwargs):
         form = NewCategoryFeatureKeyForm(request.POST or None)
